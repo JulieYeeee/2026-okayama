@@ -1,0 +1,422 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#f4efe7" />
+  <title>2026 岡山旅行｜區域候選討論</title>
+  <meta name="description" content="2026/11/7–11/12 岡山旅行：依照我們的旅行偏好，比較宮島、直島、倉敷、廣島、尾道與高松。" />
+  <style>
+    :root {
+      --bg: #f6f2ea;
+      --paper: rgba(255,255,255,.82);
+      --ink: #20211e;
+      --muted: #6e6b63;
+      --line: rgba(32,33,30,.12);
+      --accent: #8d4f3f;
+      --accent-2: #315c57;
+      --soft: #ebe3d6;
+      --shadow: 0 18px 50px rgba(48, 42, 34, .08);
+      --radius: 24px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 8% 4%, rgba(173, 112, 82, .14), transparent 28rem),
+        radial-gradient(circle at 88% 15%, rgba(64, 111, 102, .14), transparent 30rem),
+        var(--bg);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans TC", "PingFang TC", sans-serif;
+      line-height: 1.7;
+    }
+
+    a { color: inherit; }
+    .wrap { width: min(1120px, calc(100% - 40px)); margin: 0 auto; }
+
+    header {
+      padding: 76px 0 36px;
+      min-height: 58vh;
+      display: grid;
+      align-items: center;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      width: fit-content;
+      align-items: center;
+      gap: 8px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,.55);
+      border-radius: 999px;
+      padding: 7px 12px;
+      color: var(--muted);
+      font-size: 14px;
+      backdrop-filter: blur(10px);
+    }
+
+    h1 {
+      margin: 22px 0 16px;
+      max-width: 850px;
+      font-family: Georgia, "Noto Serif TC", serif;
+      font-size: clamp(44px, 8vw, 88px);
+      line-height: 1.02;
+      letter-spacing: -.035em;
+      font-weight: 500;
+    }
+
+    .lead {
+      max-width: 760px;
+      margin: 0;
+      font-size: clamp(18px, 2.4vw, 24px);
+      color: var(--muted);
+    }
+
+    .trip-strip {
+      margin-top: 36px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .pill {
+      padding: 9px 13px;
+      border-radius: 999px;
+      background: var(--paper);
+      border: 1px solid var(--line);
+      font-size: 14px;
+      box-shadow: 0 8px 24px rgba(48,42,34,.04);
+    }
+
+    section { padding: 34px 0 72px; }
+    .section-head {
+      display: grid;
+      grid-template-columns: 1fr 1.4fr;
+      gap: 42px;
+      align-items: end;
+      margin-bottom: 28px;
+    }
+    .section-head h2 {
+      margin: 0;
+      font-family: Georgia, "Noto Serif TC", serif;
+      font-size: clamp(30px, 5vw, 54px);
+      font-weight: 500;
+      line-height: 1.1;
+    }
+    .section-head p { margin: 0; color: var(--muted); }
+
+    .preferences {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+    }
+    .pref {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 22px;
+      min-height: 190px;
+      box-shadow: var(--shadow);
+    }
+    .pref .num {
+      font-family: Georgia, serif;
+      font-size: 14px;
+      color: var(--accent);
+    }
+    .pref h3 { margin: 28px 0 8px; font-size: 18px; }
+    .pref p { margin: 0; color: var(--muted); font-size: 14px; }
+
+    .ranking {
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      overflow: hidden;
+      background: rgba(255,255,255,.55);
+    }
+    .rank-row {
+      display: grid;
+      grid-template-columns: 1.1fr 1fr 1fr 1fr .8fr;
+      gap: 12px;
+      padding: 15px 18px;
+      border-top: 1px solid var(--line);
+      align-items: center;
+      font-size: 14px;
+    }
+    .rank-row:first-child { border-top: 0; }
+    .rank-row.header { color: var(--muted); font-size: 12px; text-transform: uppercase; letter-spacing: .04em; }
+    .stars { letter-spacing: 1px; color: var(--accent); white-space: nowrap; }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px;
+    }
+    .card {
+      position: relative;
+      overflow: hidden;
+      border-radius: 28px;
+      padding: 28px;
+      min-height: 390px;
+      background: var(--paper);
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+      display: flex;
+      flex-direction: column;
+    }
+    .card::after {
+      content: "";
+      position: absolute;
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      right: -60px;
+      top: -60px;
+      background: radial-gradient(circle, rgba(141,79,63,.16), transparent 68%);
+      pointer-events: none;
+    }
+    .card:nth-child(even)::after { background: radial-gradient(circle, rgba(49,92,87,.17), transparent 68%); }
+    .kicker { color: var(--accent); font-size: 13px; font-weight: 700; letter-spacing: .05em; }
+    .card h3 {
+      margin: 8px 0 8px;
+      font-family: Georgia, "Noto Serif TC", serif;
+      font-weight: 500;
+      font-size: 34px;
+    }
+    .summary { color: var(--muted); margin: 0 0 18px; max-width: 90%; }
+    .tags { display: flex; flex-wrap: wrap; gap: 7px; margin-bottom: 22px; }
+    .tag { border: 1px solid var(--line); border-radius: 999px; padding: 5px 9px; font-size: 12px; background: rgba(255,255,255,.55); }
+    .card ul { padding-left: 18px; margin: 4px 0 20px; }
+    .card li { margin: 7px 0; }
+    .verdict {
+      margin-top: auto;
+      padding-top: 18px;
+      border-top: 1px solid var(--line);
+      font-size: 14px;
+    }
+    .verdict strong { color: var(--accent-2); }
+
+    .compare {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+    .compare-box {
+      border-radius: var(--radius);
+      padding: 26px;
+      background: var(--paper);
+      border: 1px solid var(--line);
+    }
+    .compare-box h3 { margin-top: 0; font-size: 24px; }
+    .quote {
+      margin: 18px 0 0;
+      padding: 18px 20px;
+      border-left: 3px solid var(--accent);
+      background: var(--soft);
+      border-radius: 0 16px 16px 0;
+      font-family: Georgia, "Noto Serif TC", serif;
+      font-size: 18px;
+    }
+
+    .decision {
+      border-radius: 32px;
+      padding: clamp(28px, 5vw, 54px);
+      background: #242621;
+      color: #f7f2ea;
+      position: relative;
+      overflow: hidden;
+    }
+    .decision::before {
+      content: "";
+      position: absolute;
+      inset: auto -10% -55% 35%;
+      height: 320px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(223,165,122,.25), transparent 65%);
+    }
+    .decision h2 { margin: 0 0 12px; font-family: Georgia, "Noto Serif TC", serif; font-size: clamp(34px, 5vw, 58px); font-weight: 500; }
+    .decision p { color: rgba(247,242,234,.72); max-width: 760px; }
+    .priority { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 28px; position: relative; }
+    .priority > div { padding: 18px; border: 1px solid rgba(255,255,255,.14); border-radius: 18px; background: rgba(255,255,255,.05); }
+    .priority small { color: rgba(247,242,234,.55); }
+    .priority strong { display: block; margin-top: 5px; font-size: 20px; }
+
+    footer { padding: 30px 0 70px; color: var(--muted); font-size: 13px; }
+    footer a { text-underline-offset: 3px; }
+
+    @media (max-width: 860px) {
+      header { min-height: auto; padding-top: 54px; }
+      .section-head { grid-template-columns: 1fr; gap: 12px; }
+      .preferences { grid-template-columns: repeat(2, 1fr); }
+      .cards, .compare { grid-template-columns: 1fr; }
+      .ranking { overflow-x: auto; }
+      .rank-row { min-width: 720px; }
+      .priority { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 540px) {
+      .wrap { width: min(100% - 24px, 1120px); }
+      .preferences { grid-template-columns: 1fr; }
+      .pref { min-height: auto; }
+      .pref h3 { margin-top: 14px; }
+      .card { padding: 22px; min-height: auto; }
+      h1 { font-size: 48px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap">
+      <div class="eyebrow">🍂 2026.11.07 — 11.12 · 岡山出發 · 2 人旅行</div>
+      <h1>岡山周邊，<br>我們想去哪裡？</h1>
+      <p class="lead">先不急著排每天行程。這一頁先用我們真正喜歡的旅行方式，篩選岡山周邊值得投入時間的城市與區域。</p>
+      <div class="trip-strip">
+        <span class="pill">11/7 抵達岡山＋馬拉松報到</span>
+        <span class="pill">11/8 5K · 08:45 開跑</span>
+        <span class="pill">11/9–11/11 三個完整旅遊日</span>
+        <span class="pill">11/12 17:55 OKJ → TPE</span>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section>
+      <div class="wrap">
+        <div class="section-head">
+          <h2>我們的旅行偏好</h2>
+          <p>我們不是單純打卡，也不是只想慢慢喝咖啡。比較像是：一天有一兩個「今天來這裡就是為了這個」的主角，剩下時間留給城市。</p>
+        </div>
+        <div class="preferences">
+          <article class="pref"><span class="num">01</span><h3>值得專程去的景點</h3><p>難得出國，希望看到具有代表性、甚至會記很久的景點。</p></article>
+          <article class="pref"><span class="num">02</span><h3>探店與 City Walk</h3><p>咖啡、美食、服飾、特色小物，以及可以隨性走進去的小店。</p></article>
+          <article class="pref"><span class="num">03</span><h3>藝術・設計・人文</h3><p>喜歡建築、美術館、歷史街區，以及一座城市背後的故事。</p></article>
+          <article class="pref"><span class="num">04</span><h3>自然是加分項</h3><p>有餘裕會喜歡山、海、健行，但不需要讓自然景點主導整趟旅行。</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="wrap">
+        <div class="section-head">
+          <h2>快速比較</h2>
+          <p>這不是「景點客觀排名」，而是依照我們這次的旅行偏好與有限天數做的相對排序。</p>
+        </div>
+        <div class="ranking">
+          <div class="rank-row header"><span>區域</span><span>難忘代表性</span><span>探店 / City Walk</span><span>藝術人文</span><span>優先度</span></div>
+          <div class="rank-row"><strong>宮島</strong><span class="stars">★★★★★</span><span>★★★☆☆</span><span>★★★★★</span><strong>S</strong></div>
+          <div class="rank-row"><strong>直島</strong><span class="stars">★★★★★</span><span>★★★☆☆</span><span>★★★★★</span><strong>S</strong></div>
+          <div class="rank-row"><strong>倉敷</strong><span class="stars">★★★★☆</span><span>★★★★★</span><span>★★★★★</span><strong>S</strong></div>
+          <div class="rank-row"><strong>廣島</strong><span class="stars">★★★★★</span><span>★★★★☆</span><span>★★★★★</span><strong>A+</strong></div>
+          <div class="rank-row"><strong>尾道</strong><span class="stars">★★★☆☆</span><span>★★★★★</span><span>★★★★☆</span><strong>A</strong></div>
+          <div class="rank-row"><strong>高松</strong><span class="stars">★★★☆☆</span><span>★★★★☆</span><span>★★★★☆</span><strong>B+</strong></div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="wrap">
+        <div class="section-head">
+          <h2>六個候選地</h2>
+          <p>重點不是「哪個最好」，而是每個地方負責的旅行體驗不同。把重複度高的刪掉，才比較容易組成一趟有層次的旅行。</p>
+        </div>
+        <div class="cards">
+          <article class="card">
+            <span class="kicker">經典 × 世界遺產 × 島嶼</span>
+            <h3>宮島</h3>
+            <p class="summary">最符合「難得出國，想看到會記很久的畫面」。嚴島神社、海上大鳥居、島嶼景色與傳統街道集中在一起。</p>
+            <div class="tags"><span class="tag">嚴島神社</span><span class="tag">海上鳥居</span><span class="tag">牡蠣</span><span class="tag">穴子飯</span><span class="tag">自然</span></div>
+            <ul><li>代表性非常高，第一次到中國地方很值得。</li><li>不只看神社，還能散步、吃東西、逛表參道。</li><li>有體力再加彌山；不爬山也完全成立。</li></ul>
+            <div class="verdict"><strong>我們的定位：</strong>幾乎應該保留的「經典主角」。</div>
+          </article>
+
+          <article class="card">
+            <span class="kicker">建築 × 當代藝術 × 瀨戶內海</span>
+            <h3>直島</h3>
+            <p class="summary">不是單純逛美術館，而是一整天把建築、藝術、島嶼與海景串在一起。這種旅行體驗很難被其他日本城市取代。</p>
+            <div class="tags"><span class="tag">安藤忠雄</span><span class="tag">地中美術館</span><span class="tag">Benesse</span><span class="tag">海島</span><span class="tag">設計</span></div>
+            <ul><li>對喜歡建築、設計、美術館空間的人命中率很高。</li><li>特殊性很強，很像「這次旅程才會特別去的地方」。</li><li>船班、島上交通與部分美術館時段需要事前安排。</li></ul>
+            <div class="verdict"><strong>我們的定位：</strong>最獨特、替代性最低的一天。</div>
+          </article>
+
+          <article class="card">
+            <span class="kicker">老街 × 咖啡 × 工藝 × 美術館</span>
+            <h3>倉敷</h3>
+            <p class="summary">漂亮、精緻、好逛。白壁、黑瓦、柳樹與運河之外，還有大原美術館、帆布、丹寧、工藝小物與老屋咖啡。</p>
+            <div class="tags"><span class="tag">美觀地區</span><span class="tag">大原美術館</span><span class="tag">帆布</span><span class="tag">丹寧</span><span class="tag">咖啡</span></div>
+            <ul><li>最符合「逛得舒服」：咖啡、美食、購物、藝術一次滿足。</li><li>和京都都有歷史街區感，但倉敷更像商人町＋運河藝術街區，而不是古都。</li><li>離岡山很近，半天到一天就很完整，不太需要犧牲跨縣行程。</li></ul>
+            <div class="verdict"><strong>我們的定位：</strong>高品質的岡山近郊，適合放進半天或跑完 5K 後。</div>
+          </article>
+
+          <article class="card">
+            <span class="kicker">歷史 × 城市 × 美食</span>
+            <h3>廣島</h3>
+            <p class="summary">和平紀念公園與原爆圓頂館提供非常強烈的現代史脈絡，同時又是一座真正的大城市，可以把人文與逛街、美食放在同一天。</p>
+            <div class="tags"><span class="tag">和平紀念公園</span><span class="tag">原爆圓頂館</span><span class="tag">廣島燒</span><span class="tag">購物</span></div>
+            <ul><li>歷史體驗與寺社古蹟完全不同，內容有份量。</li><li>適合半天歷史人文＋半天城市生活。</li><li>最好和宮島視為同一條旅行線，而不是兩個獨立目的地。</li></ul>
+            <div class="verdict"><strong>我們的定位：</strong>「宮島＋廣島」組合中的城市面。</div>
+          </article>
+
+          <article class="card">
+            <span class="kicker">坡道 × 港町 × 巷弄</span>
+            <h3>尾道</h3>
+            <p class="summary">不是精緻規劃好的觀光街區，而是一座真的長在山坡與海之間的城市：鐵路、小巷、寺廟、階梯與瀨戶內海構成很強的地方感。</p>
+            <div class="tags"><span class="tag">千光寺</span><span class="tag">坡道</span><span class="tag">港町</span><span class="tag">咖啡</span><span class="tag">攝影</span></div>
+            <ul><li>適合不追景點、想鑽巷子與找咖啡店的一天。</li><li>比倉敷更生活化、更有地形感，也更需要走坡道與階梯。</li><li>若已經安排宮島＋直島，海景與慢走氛圍會有些重疊。</li></ul>
+            <div class="verdict"><strong>我們的定位：</strong>非常可能會喜歡，但在這次有限天數下先列候補。</div>
+          </article>
+
+          <article class="card">
+            <span class="kicker">庭園 × 烏龍麵 × 地方城市</span>
+            <h3>高松</h3>
+            <p class="summary">適合「待」而不是一直追景點：吃烏龍麵、走栗林公園、逛商店街、喝咖啡、到港邊散步。</p>
+            <div class="tags"><span class="tag">栗林公園</span><span class="tag">烏龍麵</span><span class="tag">商店街</span><span class="tag">港口</span></div>
+            <ul><li>舒服、好吃、生活感強，適合慢旅行。</li><li>單論這次偏好，代表性與不可替代性略低於宮島、直島。</li><li>若決定往四國走，再順勢把高松放進來最合理。</li></ul>
+            <div class="verdict"><strong>我們的定位：</strong>四國線的加分城市，而不是這趟一定要塞進去。</div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="wrap">
+        <div class="section-head">
+          <h2>倉敷 vs. 尾道</h2>
+          <p>兩者都適合 city walk、咖啡與老街，但其實是在滿足不同的旅行慾望。</p>
+        </div>
+        <div class="compare">
+          <div class="compare-box">
+            <h3>選倉敷，如果我們想要…</h3>
+            <p>精緻、完整、好逛、好買，而且藝術含量高。想找漂亮咖啡店、特色小物、工藝與美術館，倉敷更強。</p>
+            <div class="quote">「今天想逛一個漂亮、有內容，而且很舒服的歷史街區。」</div>
+          </div>
+          <div class="compare-box">
+            <h3>選尾道，如果我們想要…</h3>
+            <p>更強的地方個性與生活感。願意爬坡、鑽小巷、看海，接受「景點沒那麼密集，但城市本身就是主角」。</p>
+            <div class="quote">「今天不追景點，就想在一座有味道的港町亂走。」</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="wrap">
+        <div class="decision">
+          <h2>目前最值得先討論的 4 個</h2>
+          <p>如果要讓這趟旅行同時有「經典、藝術、老街生活、人文歷史」四種層次，目前最有吸引力的組合是宮島／廣島、直島與倉敷。尾道與高松保留作為第二輪候選。</p>
+          <div class="priority">
+            <div><small>第一圈</small><strong>宮島 ＋ 廣島</strong></div>
+            <div><small>第一圈</small><strong>直島</strong></div>
+            <div><small>低成本高回報</small><strong>倉敷</strong></div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <p>這是一份旅伴討論用草稿，並非最終行程。下一步：兩人各自選 Top 3，再依交通、住宿與休館日組成 11/7–11/12 的實際路線。</p>
+      <p>參考官方資訊可再查：<a href="https://www.okayama-japan.jp/en/" target="_blank" rel="noreferrer">Okayama Tourism</a> · <a href="https://benesse-artsite.jp/en/" target="_blank" rel="noreferrer">Benesse Art Site Naoshima</a> · <a href="https://www.japan.travel/en/destinations/chugoku/hiroshima/" target="_blank" rel="noreferrer">JNTO Hiroshima</a></p>
+    </div>
+  </footer>
+</body>
+</html>
